@@ -1,10 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
+import SignUp from './containers/SignUp';
 
 function App() {
   return (
     <div className="App">
-      App
+      <SignUp />
     </div>
   );
 }

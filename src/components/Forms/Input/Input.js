@@ -9,13 +9,16 @@ const InputContainer = styled.div`
     padding: 10px;
 `
 const Label = styled.label`
+
     padding-bottom: 10px;
 `
 const InputField = styled.input`
-
+    padding: 5px 10px;
+    border: none;
+    border-bottom: 1px solid gray;
 `
 
-const Input = ({ value, label, forName, type, placeholder }) => {
+const Input = ({ value, label, forName, type, placeholder, ...props }) => {
     const handleChange = (event) => {
         value(event.target.value)
     }

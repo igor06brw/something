@@ -1,9 +1,20 @@
 import React from 'react';
+import styled from 'styled-components';
 
-const Button = () => {
+const StyledButton = styled.button`
+    outline: none;
+    padding: 1.2rem 2rem;
+    border: none;
+    background-color: #506591;
+    color: white;
+`
+
+
+const Button = ({ children }) => {
     return (
-        <div>
-            
-        </div>
+        <StyledButton>
+            {children}
+        </StyledButton>
     );  
+}
 export default Button;

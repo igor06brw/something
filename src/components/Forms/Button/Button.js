@@ -10,9 +10,10 @@ const StyledButton = styled.button`
 `
 
 
-const Button = ({ children }) => {
+const Button = ({ type, disabled, color, children }) => {
+    
     return (
-        <StyledButton>
+        <StyledButton type={type} disabled={disabled} style={{backgroundColor: color}}>
             {children}
         </StyledButton>
     );  

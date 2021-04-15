@@ -15,6 +15,10 @@ const SignUp = () => {
         console.log({signUpEmail, signUpPassword, submitted})
     }
 
+    const handleInputs = (event) => {
+        
+    }
+
     return (
         <StyledForm onSubmit={handleSubmit}>
             <Input label={'E-mail'} forName={'signUpEmail'} type={"email"} placeholder="press your e-mail..." value={(e) => setSignUpEmail(e)} />

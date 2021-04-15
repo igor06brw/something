@@ -13,16 +13,13 @@ const SignUp = () => {
         event.preventDefault();
         setSubmitted(true);
         console.log({signUpEmail, signUpPassword, submitted})
-        if(submitted === true) {
-            setInterval(setSubmitted(false), 100);
-        }
     }
 
     return (
         <StyledForm onSubmit={handleSubmit}>
             <Input label={'E-mail'} forName={'signUpEmail'} type={"email"} placeholder="press your e-mail..." value={(e) => setSignUpEmail(e)} />
             <Input label={'Password'} forName={'signUpPassword'} type={"password"} placeholder="press your password..." value={(e) => setSignUpPassword(e)} />
-            <Button type={'submit'} disabled={submitted ? 'disabled' : null} color={submitted ? "gray" : "black"}>Sign Up</Button>
+            <Button type={'submit'} disabled={submitted} color={submitted ? "gray" : "black"}>{submitted ? 'Sending...' : 'Send'}</Button>
         </StyledForm>
     );
 }

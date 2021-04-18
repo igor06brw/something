@@ -1,5 +1,4 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import firebase from "firebase/app";
 import 'firebase/auth';
 
 const firebaseConfig = {
@@ -9,9 +8,8 @@ const firebaseConfig = {
     storageBucket: "test-project-31aa6.appspot.com",
     messagingSenderId: "841132426263",
     appId: "1:841132426263:web:7cd70616a40466f01b8852"
-  };
-
+};
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.firestore();
 
 export default firebase;

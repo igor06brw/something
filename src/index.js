@@ -15,8 +15,8 @@ import thunk from "redux-thunk";
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 import firebase from "./firebase/firebase";
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
   composeEnhancers(

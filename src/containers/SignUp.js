@@ -30,7 +30,6 @@ const SignUp = (props) => {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state);
     const uid = state.firebase.auth.uid;
     return {
         uid: uid,

@@ -7,23 +7,29 @@ import { StyledForm } from '../hoc/form';
 
 const SignUp = (props) => {
     const [submitted, setSubmitted] = useState(false);
-    const [signUpEmail, setSignUpEmail] = useState("");
-    const [signUpPassword, setSignUpPassword]  = useState("");
+    const [signUpData, setSignUpData] = useState({
+        email : "",
+        password : ""
+    })
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setSubmitted(true);
-        props.signUp({ signUpEmail, signUpPassword})
+        props.signUp(signUpData);
     }
 
-    const handleInputs = (event) => {
-        
+    const handleChanges = (e) => {
+        const {id, value} = e.target
+        setSignUpData(prevState => ({
+            ...prevState,
+            [id] : value
+        }))       
     }
 
     return (
         <StyledForm onSubmit={handleSubmit}>
-            <Input label={'E-mail'} forName={'signUpEmail'} type={"email"} placeholder="press your e-mail..." value={(e) => setSignUpEmail(e)} />
-            <Input label={'Password'} forName={'signUpPassword'} type={"password"} placeholder="press your password..." value={(e) => setSignUpPassword(e)} />
+            <Input label={'E-mail'} forName={'email'} type={"email"} id="email" placeholder="press your e-mail..." value={signUp.email} onChange={handleChanges}/>
+            <Input label={'Password'} forName={'password'} type={"password"} id="password" placeholder="press your password..." value={signUp.password} onChange={handleChanges}/>
             <Button type={'submit'} disabled={submitted} color={submitted ? "gray" : "black"}>{submitted ? 'Sending...' : 'Send'}</Button>
         </StyledForm>
     );
@@ -43,4 +49,4 @@ const mapStateToProps = (state) => {
   };
 
 
-  export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
+  export default connect(mapStateToProps, mapDispatchToProps)(SignUp)

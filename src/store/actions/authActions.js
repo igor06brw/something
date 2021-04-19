@@ -7,7 +7,7 @@ export const signUp = user => {
     
     firebase
     .auth()
-    .createUserWithEmailAndPassword(user.signUpEmail, user.signUpPassword)
+    .createUserWithEmailAndPassword(user.email, user.password)
     .then(() => {
       dispatch({ type: actions.SIGN_UP_SUCCESSFULL });
       })

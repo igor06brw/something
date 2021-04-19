@@ -18,15 +18,11 @@ const InputField = styled.input`
     border-bottom: 1px solid gray;
 `
 
-const Input = ({ value, label, forName, type, placeholder, ...props }) => {
-    const handleChange = (event) => {
-        value(event.target.value)
-    }
-
+const Input = ({ value, label, forName, type, placeholder, onChange, id, ...props}) => {
     return (
         <InputContainer>
             <Label for={forName}>{label}</Label>
-            <InputField name={forName} type={type} placeholder={placeholder} onChange={(e) => handleChange(e)} />
+            <InputField name={forName} type={type} id={id} placeholder={placeholder} onChange={onChange} value={value} />
         </InputContainer>
     );
 }

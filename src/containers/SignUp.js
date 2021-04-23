@@ -27,11 +27,11 @@ const SignUp = (props) => {
     }
 
     return (
-        <StyledForm onSubmit={handleSubmit}>
-            <Input label={'E-mail'} forName={'email'} type={"email"} id="email" placeholder="press your e-mail..." value={signUp.email} onChange={handleChanges}/>
-            <Input label={'Password'} forName={'password'} type={"password"} id="password" placeholder="press your password..." value={signUp.password} onChange={handleChanges}/>
-            <Button type={'submit'} disabled={submitted} color={submitted ? "gray" : "black"}>{submitted ? 'Sending...' : 'Send'}</Button>
-        </StyledForm>
+            <StyledForm onSubmit={handleSubmit}>
+                <Input label={'E-mail'} forName={'email'} type={"email"} id="email" placeholder="press your e-mail..." value={signUp.email} onChange={handleChanges}/>
+                <Input label={'Password'} forName={'password'} type={"password"} id="password" placeholder="press your password..." value={signUp.password} onChange={handleChanges}/>
+                <Button type={'submit'} disabled={submitted} color={submitted ? "gray" : "black"}>{submitted ? 'Sending...' : 'Send'}</Button>
+            </StyledForm>
     );
 }
 
@@ -40,6 +40,7 @@ const mapStateToProps = (state) => {
     return {
         uid: uid,
     };
+
   };
   
   const mapDispatchToProps = (dispatch) => {

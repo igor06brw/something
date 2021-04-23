@@ -16,3 +16,20 @@ export const signUp = user => {
       });
   };
 };
+
+export const signIn = user => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+    dispatch({ type: actions.SIGN_IN_START });
+
+    firebase
+    .auth()
+    .signInWithEmailAndPassword(user.email, user.password)
+    .then(() => {
+      dispatch({ type: actions.SIGN_IN_SUCCESSFULL });
+      })
+      .catch(err => {
+        dispatch({ type: actions.SIGN_IN_ERROR }, err);
+      });
+  };
+}

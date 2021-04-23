@@ -1,3 +1,7 @@
 export const SIGN_UP_START = "SIGN_UP_START"; 
 export const SIGN_UP_SUCCESSFULL = "SIGN_UP_SUCCESSFULL";
 export const SIGN_UP_ERROR = "SIGN_UP_ERROR";
+
+export const SIGN_IN_START = "SIGN_IN_START"; 
+export const SIGN_IN_SUCCESSFULL = "SIGN_IN_SUCCESSFULL";
+export const SIGN_IN_ERROR = "SIGN_IN_ERROR";

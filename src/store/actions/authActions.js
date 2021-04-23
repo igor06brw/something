@@ -33,3 +33,18 @@ export const signIn = user => {
       });
   };
 }
+
+export const signOut = () => {
+  return (dispatch, getState, { getFirebase }) => {
+    const firebase = getFirebase();
+    firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      dispatch({ type: actions.SIGN_OUT_SUCCESSFULL });
+    })
+    .catch(err => {
+      dispatch({ type: actions.SIGN_OUT_ERROR }, err);
+    });
+  };
+}

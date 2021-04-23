@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Input from '../components/Forms/Input/Input';
 import Button from '../components/Forms/Button/Button';
 import { signUp } from "../store/actions/authActions";
-import { connect } from "react-redux";
+import { connect, useDispatch } from "react-redux";
 import { StyledForm } from '../hoc/form';
 
 const SignUp = (props) => {
@@ -11,11 +11,13 @@ const SignUp = (props) => {
         email : "",
         password : ""
     })
+    const dispatch = useDispatch();
+    const signUpAction = (data) => dispatch(signUp(data))
 
     const handleSubmit = (event) => {
         event.preventDefault();
         setSubmitted(true);
-        props.signUp(signUpData);
+        signUpAction(signUpData);
     }
 
     const handleChanges = (e) => {
@@ -36,19 +38,4 @@ const SignUp = (props) => {
     );
 }
 
-const mapStateToProps = (state) => {
-    const uid = state.firebase.auth.uid;
-    return {
-        uid: uid,
-    };
-
-  };
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      signUp: (user) => {console.log(user); dispatch(signUp(user))},
-    };
-  };
-
-
-  export default connect(mapStateToProps, mapDispatchToProps)(SignUp)
+export default SignUp

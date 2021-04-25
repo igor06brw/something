@@ -14,7 +14,7 @@ import thunk from "redux-thunk";
 // ENHANCING STORE WITH FIREBASE
 import { ReactReduxFirebaseProvider, getFirebase } from 'react-redux-firebase'
 import firebase from "./firebase/firebase";
-
+import { createFirestoreInstance } from 'redux-firestore';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -24,10 +24,16 @@ const store = createStore(
   )
 )
 
+const rrfConfig = {
+  userProfile: 'users',
+  useFirestoreForProfile: true
+}
+
 const rrfProps = {
     firebase,
-    config: {},
-    dispatch: store.dispatch
+    config: rrfConfig,
+    dispatch: store.dispatch,
+    createFirestoreInstance
 }
 
 ReactDOM.render(
